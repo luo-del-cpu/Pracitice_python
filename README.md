@@ -1,0 +1,2 @@
+# Pracitice_python
+此仓库中记录了关于pyhon学习中的一些基础知识

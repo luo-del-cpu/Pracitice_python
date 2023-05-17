@@ -1,0 +1,1 @@
+print('这是packag_test包中的init文件')

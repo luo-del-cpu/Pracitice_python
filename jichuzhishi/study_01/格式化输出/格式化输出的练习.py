@@ -12,7 +12,7 @@
 # print(message)
 
 
-# ke_cheng = 'ptthon'
+# ke_cheng = 'python'
 # day = 3
 # learn_day = 3
 # print("我今天已经学习{}{}天了，接下来还有继续学习{}天".format(ke_cheng,day,learn_day))
@@ -29,14 +29,17 @@
 # print(filename[0])
 # print(filename[0:7])
 
-str_1 = 'hello world'
-str = 'abcdefg'
+# str_1 = 'hello world'
+# str = 'abcdefg'
 # print(str_1[-1:-6:-1])
 # print(str_1[:6])
 # print(str_1[::-1])
 # print(str_1[4:1:-1])
 # print(str_1[2:8])
 
-print(str_1[::2])
-print(str[::2])
-print(str[-2:0:-1])
+# print(str_1[::2])
+# print(str[::2])
+# print(str[-2:0:-1])
+
+name = 'test'
+print(f"这是一个{name}")

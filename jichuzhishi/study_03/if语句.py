@@ -1,9 +1,20 @@
-#单层判断：
+"""
+单层判断：
+if 条件表达式：
+    执行步骤
+"""
+
 # today_weather = "rainyday"
 # if(today_weather == "rainyday"):
 #     print("take your umbrella")
 
-#双重判断：
+"""
+双重判断：
+if 条件表达式：
+    执行步骤
+else：
+    执行步骤
+"""
 # gaokao_soccer = int(input("请输入高考分数："))
 # #gaokao_soccer = 580
 # if gaokao_soccer > 580 :
@@ -11,7 +22,38 @@
 # else:
 #     print("go home")
 
-#多层判断
+"""
+嵌套判断：
+if 条件表达式：
+    执行步骤
+    if 条件表达式：
+        执行步骤
+    else：
+        执行步骤
+else：
+    执行步骤
+"""
+
+# num = 2
+# if num > 1 and num < 3:
+#     print("这是一个小于3的数")
+#     if num >3 and num <6:
+#         print("这是一个小于6的数")
+#     else:
+#         print("这是一个大于6的数")
+# else:
+#     print("这是一个大于3的数")
+
+"""
+多层判断：
+if 条件表达式：
+    执行步骤
+elif 条件表达式：
+    执行步骤
+else:
+    执行步骤
+"""
+
 # level = int(input("请输入你的分数："))
 # # if level > 10 and level < 30:
 # #     print("C")
@@ -83,10 +125,10 @@
 #     print("猜错了")
 # print("随机数：",ran)
 
-age = int(input('猜猜我的年龄：'))
-if age > 80 :
-    print("老年人")
-elif age >40 and age < 80 :
-    print("中年人")
-elif age < 18 :
-    print("未成年")
+# age = int(input('猜猜我的年龄：'))
+# if age > 80 :
+#     print("老年人")
+# elif age >40 and age < 80 :
+#     print("中年人")
+# elif age < 18 :
+#     print("未成年")

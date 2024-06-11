@@ -32,7 +32,7 @@
     动作：打篮球 听音乐...---->方法
 
     多个对象--->提取对象的共同特征和动作--->封装到一个类中
-####重点：类中只放对象共有的属性和方法
+####【重点：类中只放对象共有的属性和方法】
 '''
 # 在程序中一般先定义类，在找出对象的属性与方法
 
@@ -56,9 +56,9 @@ class Phone:
 
 
 # 使用类创建对象
-zhangsan = Phone()  # 创建一个对象,因为在Phone类的内存中存在一个brand属性，所以在创建张三对象的内存空间时也会有brand属性
+zhangsan = Phone()  # 创建一个对象
 print(zhangsan)  # 得出：<__main__.Phone object at 0x0000025D4881E280>；为创建的对象分配一个内存空间
-print(zhangsan.brand)  # 得出：Huawei；使用对象打印出对象中的属性
+print(zhangsan.brand)  # 得出：Huawei；从类中找出对应的属性
 zhangsan.brand = 'iphone'
 print(zhangsan.brand)  # 得出：iphone；修改张三的属性，只是修改自己的属性，并不会影响类中的属性和其它对象的属性
 print(Phone.brand)  # 得出：Huawei，类中的属性依然是Huawei

@@ -2,7 +2,7 @@
 注意：如果使用else则在try代码中不能出现return
 
 异常情况4：
-#文件操作：stream = open（...）  stream.read()   stream.close()[在此处经常会忘记，所以将此放入finally里]
+#study_19：stream = open（...）  stream.read()   stream.close()[在此处经常会忘记，所以将此放入finally里]
 #数据库操作：同上文件操作所述一致
 
 try：

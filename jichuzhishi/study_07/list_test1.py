@@ -34,7 +34,8 @@ print(f"最大值是{maxvalue}，最小值是{minvalue}")
 
 numbers = [15, 13, 8, 20, 12, 19, 1, 9, 16, 5]
 
-for i in range(len(numbers)-1):
-    if numbers[i] > numbers[i+1]:
-        numbers[i]=numbers[i+1]
+for i in range(len(numbers)):
+    for j in range(i+1,len(numbers)):
+        if numbers[i] > numbers[j]:
+            numbers[i],numbers[j] = numbers[j],numbers[i]
 print(numbers)

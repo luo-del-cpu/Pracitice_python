@@ -41,5 +41,5 @@
 # print(str[::2])
 # print(str[-2:0:-1])
 
-name = 'test'
+name = '文件夹的复制练习'
 print(f"这是一个{name}")

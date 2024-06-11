@@ -4,7 +4,7 @@ def add(a,b):
     # print(result)
     return 'aaa',11,result#扔出多个用一个参数接就会将参数放在元组中
 x=add(2,5)
-print(x)
+print(x) #('aaa', 11, 7)
 
 '''
 return 返回值

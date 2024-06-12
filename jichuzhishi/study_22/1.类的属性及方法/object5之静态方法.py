@@ -47,6 +47,7 @@ class Person():
         # print(self.name)  # 语法的错误，静态方法是无法访问对象的属性的
         print('--->静态方法')
         print(Person.__age)
+        Person.show_age() # 可以通过类访问到类方法
 
 
 Person.test()

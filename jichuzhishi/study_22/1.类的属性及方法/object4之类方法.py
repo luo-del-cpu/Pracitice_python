@@ -2,7 +2,7 @@
 '''
 特点：
     1.定义需要依赖装饰器：@classmethod
-    2.类方法中参数不是一个对象，而是类
+    2.类方法中参数不是一个对象，而是当前的这个类
     3.类方法中可以使用类属性
     4.类方法中不可使用普通方法
 
@@ -20,7 +20,7 @@ class Dog():
 
     def run(self):
         print('{}在跑步'.format(self.name))
-        # self.run()  # 类中的方法相互调用，需要通过self.方法名（）
+        # self.run()  # 类中的【普通方法】相互调用，需要通过self.方法名（）
 
     @classmethod
     def test(cls):  # 此处的cls实际是一个类，这个就是Dog类

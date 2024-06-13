@@ -48,17 +48,20 @@ class Student():
 
     def borrow_book(self, book):
         for book1 in self.books:
+            # 判断传入的书籍名是否与书箱【self.books】里的书名重复，重复就代表借过
             if book1.bname == book.bname:
                 print('已经借过了！')
                 break
         else:
-            # 将参数book添加到列表中
+            # 将对象参数book添加到列表中
             self.books.append(book)
             print('添加成功')
 
     def show_book(self):
-        for book in self.books:
-            print(book.bname)
+        for book in self.books:  #
+            """因为在self.books的列表在添加的时候，传入的就是book对象，
+            所以，这里遍历出来的每一个book就是一个book对象"""
+            print(book.bname)  # 此处只需要打印出书的名字，通过book对象查看name
 
     def __str__(self):
         return self.name + '---' + str(self.computer) + '---' + str(self.books)

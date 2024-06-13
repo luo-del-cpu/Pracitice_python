@@ -13,9 +13,9 @@
     1.init调用问题：
         a:如果子类中不定义__init__，则调用父类super class的init
         b:如果子类继承了父类，但是子类也需要定义自己的__init__，就需要在当前子类中也调用一下父类__init__
-        c:如何调用父类__init__:
-            super().__init__(参数)
-            super(类名，对象).__init__(参数)
+            如何调用父类__init__:
+                super().__init__(参数)
+                super(类名，对象).__init__(参数)
     2.方法调用问题：
         a:如果父类有eat(),子类也定义一个eat(),默认搜索的原则：先找当前类，再去找父类；此种行为就叫重写（override）
             父类提供的方法不能满足子类的需求，就需要在子类中定义一个同名的方法，这种行为：重写
@@ -27,8 +27,10 @@
 2.重写方法
 '''
 
-
-class Person():
+"""
+子类重写init方法之继承父类的init方法
+"""
+class Person:
     def __init__(self, name):
         self.name = name
 
@@ -37,18 +39,15 @@ class Person():
 
 
 class Student(Person):
-    def __init__(self, name, clazz):
+    def __init__(self,name):
         print('--->子类的init')
+        # 使用super()将父类的init全部继承,父类传参，这里也必须传参
+        super().__init__(name)
 
-        # 如何调用父类的init
-        super().__init__(name)  # super（）父类对象
-        self.clazz = clazz  # 注意：此处定义了子类的属性
+class Doctor(Person):
+    pass
+s = Student('tom')
+s.run()  # 得出：tom正在跑步
 
-    super().run()  # 此处表示调用父类的方法
-
-    def run(self, address):  # 注意：此处子类里定义了一个和父类同样的方法，调用时，先看子类
-        print('{}在{}里跑步'.format(self.name, address))
-
-
-s = Student('tom', '20班')
-s.run('操场')  # 得出：tom在操场里跑步
+d = Doctor('jack')
+d.run()

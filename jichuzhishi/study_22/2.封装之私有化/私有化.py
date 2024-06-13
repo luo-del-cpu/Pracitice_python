@@ -31,7 +31,7 @@ class Person():
         self.__age = age
 
     # 定义公有set和get方法
-    # set为了赋值
+    # setXXX为了在类外面的对象进行赋值
     def setAge(self, age):
         if age < 100:
             self.__age = age
@@ -46,9 +46,9 @@ class Person():
         else:
             print('名字不是六位')
 
-    # get为了取值
-    def getAge(self):  # 注意：此处getxxx必须使用return返回
-        return self.__age
+    # getXXX为了在类外面的对象进行读值
+    def getAge(self):
+        return self.__age  # 注意：此处getxxx必须使用return返回
 
     def __str__(self):  # 注意：此处使用str必须使用return且返回的是字符串
         return '姓名：{} 年龄：{} '.format(self.__name, self.__age)
@@ -56,7 +56,7 @@ class Person():
 
 p1 = Person('张三', 18)
 print(p1)
-# print(p1.__age)#此处想访问内部的私有化属性，无法访问
+# print(p1.__age) #此处想访问内部的私有化属性，无法访问
 p1.setAge(20)
 p1.setName('aaaaaa')
 print(p1)

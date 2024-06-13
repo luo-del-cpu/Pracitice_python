@@ -38,5 +38,5 @@ class Person():
 p1 = Person('张三', 18)
 print(p1)
 print(p1.age)  # 得出：18
-p1.age = 120
+p1.age = 90
 print(p1.age)

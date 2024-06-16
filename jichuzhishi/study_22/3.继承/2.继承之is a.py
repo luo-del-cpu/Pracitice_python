@@ -30,6 +30,8 @@
 """
 子类重写init方法之继承父类的init方法
 """
+
+
 class Person:
     def __init__(self, name):
         self.name = name
@@ -39,15 +41,23 @@ class Person:
 
 
 class Student(Person):
-    def __init__(self,name):
+    # 只要是子类继承了父类且子类重写了init方法，那么父类的init方法就不会调用，只会调用子类的init方法
+    # 通常定子类定义了自己的init方法，都需要继承一下父类的init方法
+    def __init__(self, name):
+        # 其实此处也可以通过self初始化属性，但是因为继承的思想，父类init方法已经有了，所以最好直接继承，如下super()
+        # self.name = name
         print('--->子类的init')
-        # 使用super()将父类的init全部继承,父类传参，这里也必须传参
+        # 使用super()将父类的init全部继承,父类传参，这里也必须传参，【实际上是在子类创建对象的时候将参数传进来，然后通过super()在将参数传回给父类使用】
         super().__init__(name)
+
 
 class Doctor(Person):
     pass
+
+
 s = Student('tom')
 s.run()  # 得出：tom正在跑步
 
+# 此处Dotctor类实际没有定义自己的init方法，所以就直接继承了父类的init方法，父类定义必须传参，所以此处就必须传递参数
 d = Doctor('jack')
 d.run()

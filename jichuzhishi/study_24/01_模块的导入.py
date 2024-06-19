@@ -1,8 +1,8 @@
 '''
 当此模块与其它包在同级的时候：
 1.from 包 import 模块
-2.from 包.模块 import 类|函数|变量
-3.from 包.模块 import *
+2.from 包 import 类|函数|变量【无需在加报名，可以直接调佣】
+3.from 包 import *【如果想限制获取的内容，可以子啊模块中使用__all__=[使用*可以访问到的内容 ]】
 '''
 # 使用包中模块中的User类
 # from package_test import models  # 从包中导入模块

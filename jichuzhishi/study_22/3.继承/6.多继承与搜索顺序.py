@@ -22,5 +22,6 @@ python中允许多继承
     def 子类（A,B,C）:
         pass
     搜索原则：
-        广度优先
+        python3:广度优先
+        python2:从左至右，深度优先 
 '''

@@ -1,3 +1,5 @@
+test = 1
+__all__ = ["User"]
 class User():
     def __init__(self, username, passwd):
         self.username = username

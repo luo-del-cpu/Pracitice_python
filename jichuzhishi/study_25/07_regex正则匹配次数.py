@@ -34,12 +34,11 @@ print(result)
 """
 qq = '34234234'
 # 用^ 和 $ 来卡开头与结尾，用于和需要比对的整个字符串进行比较
+# 用{}来卡前一个位置的数量，下面例子中的代表是≥4且≤10的数量
 result = re.match('^[1-9][0-9]{4,10}$', qq)
 print(result)
 
 # 用户名可以是字母或者数字，不能是数字开头，用户名长度必须6位以上
-# re.search('^[a-zA-Z][0-9a-zA-Z]{5,}$')
+re.match('^[a-zA-Z][0-9a-zA-Z]{5,}$',qq)
 
-msg_1 = 'aa.py uu.txt bb.py cc.png'
-# 找出“py”结尾的
-print(re.findall(r'\w*\.py\b', msg_1))  # 一般正则中出现了\符号，在前面都加上r
+

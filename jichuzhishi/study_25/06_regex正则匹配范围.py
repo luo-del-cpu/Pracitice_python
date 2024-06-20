@@ -1,6 +1,11 @@
 # @Time : 2024/6/19 23:06
 # @Author : luoxin
+"""
+match():从头开始找
+search():只要找见第一个就不往下找了
+findall():findall匹配整个字符串，会一直找到匹配的直到最后,最后放入一个列表中
 
+"""
 import re
 """
 []:代表一个范围，要匹配的内容。例如[a-z],代表a到z之间的字母
@@ -13,9 +18,6 @@ print(result)
 """
 案例：
     a2b h6k 在msg中搜索出上述格式的内容。以字母开始和结束，中间有一个数字
-
-search():只要找见第一个就不往下找了
-findall():findall匹配整个字符串，会一直找到匹配的直到最后,最后放入一个列表中
 """
 msg = 'safdadf5daffa8asdfa00'
 result = re.search('[a-z][0-9][a-z]', msg)

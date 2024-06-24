@@ -42,7 +42,7 @@ class Person:
 
 class Student(Person):
     # 只要是子类继承了父类且子类重写了init方法，那么父类的init方法就不会调用，只会调用子类的init方法
-    # 通常定子类定义了自己的init方法，都需要继承一下父类的init方法
+    # 通常子类定义了自己的init方法，都需要继承一下父类的init方法
     def __init__(self, name):
         # 其实此处也可以通过self初始化属性，但是因为继承的思想，父类init方法已经有了，所以最好直接继承，如下super()
         # self.name = name

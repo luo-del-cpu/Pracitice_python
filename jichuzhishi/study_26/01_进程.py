@@ -46,9 +46,14 @@ def task2():
 
 if __name__ == '__main__':
     # 子进程
+    # target=函数 name=进程的名字 args=给函数传递参数
     p = Process(target=task1, name='任务一')
+    # start()启动进程并且执行任务；run()只是执行动作，没有启动进程
     p.start()
     print(p.name)
     p1 = Process(target=task2, name='任务二')
     p1.start()
     print(p1.name)
+
+    # 终止进程
+    p.terminate()

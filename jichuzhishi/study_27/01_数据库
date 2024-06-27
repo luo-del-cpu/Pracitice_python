@@ -1,0 +1,69 @@
+数据库：
+    1：实现数据持久化
+    2：数据管理
+
+数据库的分类：关系型数据库（sql）和非关系型数据库（Nosql）
+
+关系型数据库：
+    理论基础：关系代数和集合论
+    具体表象：用二维表来保存数据
+    SQL编程语言：
+        DDL(数据定义语言)：create/drop/alter
+        DML(数据操作语言)：insert/delete/udate/select
+        DCL(数据控制语言)：grant/revoke
+
+1：创建数据库
+    create database school defalut charset utf8;
+
+2：切换数据库
+    use {数据库名称}；
+
+3：查看表
+    show tables；
+
+4：删除数据库和表结构
+    DROP DATABASE database_name;
+    DROP table {表名};
+
+5：创建表(先定义列)
+    create table tb_student
+    (
+    stuid int not null, #  not null 非空约束
+    stuname varchar(20) not null,
+    stusex bit default 1, # default 默认值约束
+    stubirth date,# date 表示年月日；Time 表示时分秒；Datetime表示年月日时分秒;Timestamp表示时间戳
+    primary key(stuid) # 主键约束，唯一确定的列,一个表中只能有一个,可以由一列或多列组成。
+    );
+
+6：修改表
+    添加一列:
+        alter table {表名} add column stuaddr varchar(255);
+    删除一列:
+        alter table {表名} drop column stuaddr;
+    修改列:
+        alter table {表名} change column stuaddr stuaddr varchar(455);
+
+7：新增数据
+        insert into {表名} values(1001，'张三'，1，'2002-2-2'，'湖北')
+    若是想要加指定列的数值，需要指定
+        insert into {表名} (stuid,stuname) values(1001，'张三'，1，'2002-2-2'，'湖北')
+    一次加入多个数据:
+        insert into {表名} values(1001，'张三'，1，'2002-2-2'，'湖北'),(xxx),(xxx)
+
+8：删除表内容
+    delete from {表名} where {条件}
+
+9：更新表内容
+    update {表名} set {字段名1}='xxx',{字段名2 }=''xxx' where {条件};
+
+10：AUTO_INCREMENT 与 PRIMARY KEY 的关系
+    CREATE TABLE users (
+    id INT NOT NULL AUTO_INCREMENT,
+    name VARCHAR(50) NOT NULL,
+    email VARCHAR(100) NOT NULL UNIQUE,
+    PRIMARY KEY (id)
+    );
+    在这个示例中，id列被设置为AUTO_INCREMENT，这意味着每当插入一个新的用户记录时，id列都会自动获得一个唯一的值。
+    同时，id列也被设置为PRIMARY KEY，以确保表中每一行都有一个唯一的标识符。
+
+11：添加外键约束用于将两个表关联起来

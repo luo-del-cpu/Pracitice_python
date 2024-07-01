@@ -66,4 +66,31 @@
     在这个示例中，id列被设置为AUTO_INCREMENT，这意味着每当插入一个新的用户记录时，id列都会自动获得一个唯一的值。
     同时，id列也被设置为PRIMARY KEY，以确保表中每一行都有一个唯一的标识符。
 
-11：添加外键约束用于将两个表关联起来
+11：添加外键约束用于将两个表关联起来，一般是在多的那个表里加外键约束
+    ALTER TABLE 子表名
+    ADD CONSTRAINT 外键约束名称
+    FOREIGN KEY (子表外键字段)
+    REFERENCES 父表名(父表主键字段);
+
+12：添加唯一性约束
+    -- 在创建表时指定唯一性约束
+    CREATE TABLE 表名 (
+        列名1 数据类型,
+        列名2 数据类型,
+        ...
+        UNIQUE (列名3),  -- 单一列的唯一性约束
+        UNIQUE (列名4, 列名5),  -- 多列组合的唯一性约束
+        ...
+    );
+
+    -- 在已存在的表上添加唯一性约束
+    ALTER TABLE 表名
+    ADD CONSTRAINT 约束名称
+    UNIQUE (列名或列名组合);
+
+    -- 删除唯一性约束
+    ALTER TABLE 表名
+    DROP INDEX 索引名称;  -- 注意：在某些数据库系统中，可能需要先找到由唯一性约束创建的索引名称，然后使用DROP INDEX命令删除
+    -- 或者（如果数据库支持）
+    ALTER TABLE 表名
+    DROP CONSTRAINT 约束名称;

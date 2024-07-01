@@ -1,0 +1,9 @@
+1：判断空值
+    select * from tb_student where {条件} is null/is not null;
+
+2：精确匹配:用一个下划线精确匹配一个字符
+    select * from  tb_student where name like "不_"
+
+3：分组以前的筛选用where语句，用于在分组（GROUP BY）之前过滤记录
+分组以后的筛选用having语句，它基于聚合函数（如 COUNT(), SUM(), AVG(), MAX(), MIN() 等）的结果或
+分组列进行筛选。

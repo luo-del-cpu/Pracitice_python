@@ -1,0 +1,14 @@
+1：索引：数据库索引是对数据库表中一列或多列的值进行排序的一种结构，使用索引可以快速访问数据库表中的特定信息。
+    a：已经创建了表，补充对列的索引
+        CREATE INDEX index_name
+        ON table_name (column1, column2, ...);
+    b：创建表的时候指定索引
+    创建一个新表orders，其中包含对order_id列的唯一索引和对customer_id列的普通索引：
+        CREATE TABLE orders (
+            order_id INT NOT NULL,
+            order_date DATE NOT NULL,
+            customer_id INT NOT NULL,
+            amount DECIMAL(10, 2) NOT NULL,
+            UNIQUE INDEX idx_order_id (order_id),
+            INDEX idx_customer_id (customer_id)
+        );

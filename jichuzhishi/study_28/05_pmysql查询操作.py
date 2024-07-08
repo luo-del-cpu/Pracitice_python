@@ -16,8 +16,6 @@ def main():
     }
     # 避免在数据库连接失败，进入except时，conn未被赋值；所以初始化conn
     conn = None
-    stusex = 0
-    stuid = 1007
     # 连接数据库
     try:
         conn = pymysql.connect(**db_config)
@@ -25,29 +23,22 @@ def main():
 
         # 使用cursor执行语句
         with conn.cursor() as cursor:
-            # SQLupdate,delete语句
-            sql1 = f"UPDATE tb_student SET stusex ={stusex}  WHERE stuid = 1001"
-            sql2 = f'DELETE FROM tb_student WHERE stuid={stuid} '
-            result1 = cursor.execute(sql1)
-            result2 = cursor.execute(sql2)
+            # SQL查询语句，sql语句不需要commit操作
+            sql = "select * from tb_student"
+            cursor.execute(sql)
 
-            # result返回操作成功的行数，此处只修改了一行，所以简单的定为1
-            # if result ==1:
-            #     print('更新成功')
-
-            # 事务提交。如果你执行了修改数据库的操作（如INSERT、UPDATE、DELETE），你需要调用连接对象的commit()方法来提交这些更改。
-            conn.commit()
-
+            # 获取所有记录；fetchone()获取一条；fetchmany()传入参数，获取指定的数据
+            results = cursor.fetchall()
+            print('results:', results)
+            for row in results:
+                print("每一行的值：", row)
+    # 捕获大多数数据库异常
     except pymysql.MySQLError as e:
         print(f'数据库操作失败：{e}')
-        # 发生异常进行回滚
-        if conn:
-            conn.rollback()
-    # 捕获除数据库操作之外的大部分异常
+
+    # 捕获除数据库操作之外的大部分异常，select不需要回滚操作
     except Exception as e:
         print(f'发生错误:{e}')
-        if conn:
-            conn.rollback()
     finally:
         # 关闭数据库连接
         if conn:

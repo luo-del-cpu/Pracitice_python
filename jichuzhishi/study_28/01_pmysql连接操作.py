@@ -23,7 +23,7 @@ def main():
 
         # 使用cursor执行语句
         with conn.cursor() as cursor:
-            # SQL建表语句
+            # SQL查询语句
             sql = "select * from tb_student"
             cursor.execute(sql)
 

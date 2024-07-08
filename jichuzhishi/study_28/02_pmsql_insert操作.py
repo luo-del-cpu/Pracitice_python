@@ -23,7 +23,7 @@ def main():
 
         # 使用cursor执行语句
         with conn.cursor() as cursor:
-            # SQL建表语句
+            # SQL插入语句
             sql = "insert into tb_college (colname) values('机械学院')"
             cursor.execute(sql)
             # 事务提交。如果你执行了修改数据库的操作（如INSERT、UPDATE、DELETE），你需要调用连接对象的commit()方法来提交这些更改。

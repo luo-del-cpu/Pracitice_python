@@ -1,0 +1,36 @@
+yum包管理工具
+
+    yum search nginx - 从默认的仓库搜索有没有指定的软件
+    yum install -y nginx - 安装软件
+    yum remove -y nginx - 卸载软件
+    yum info nginx - 查看软件相关信息
+    yum list installed - 查看已经安装的软件
+    yum update nginx - 更新软件
+
+linux源代码构建安装python解释器
+    1：wget {官网下载链接}
+    2：解压缩与解归档
+        xz -d xxx.tar.xz
+        tar -xvf xxx.tar
+    3：补充依赖库
+        yum -y install zlib-devel bzip2-devel openssl-devel nurses-devel sqlite-devel readline-devel tk-devel qdbm-devel db4-devel libpcap-devel xz-devel libffi-devel
+    4：进入目录安装前的准备工作
+        ./configure --prefix=/usr/local/python37 --enable-optimizations
+    5：构建和安装
+        make && make install
+
+启动停止重启服务(centos 7)
+    systemctl start
+    systemctl stop
+    systemctl restart
+    systemctl status ...
+
+查看网络状态
+    netstat -nap |grep ...
+查看进程
+    ps -ef |grep ...
+
+进程管理
+    &：命令后方加了这个符号后，就是在后台运行；如果不是守护进程，那么会可能在终端关闭时结束运行
+    nohup &：nohup可以忽略终端关闭的信号；适用于需要长时间运行的进程
+    jobs：查看后台运行或停止的进程

@@ -1,0 +1,26 @@
+redis数据库：非关系型数据库，以key value形式存储；将数据放在了内存中，做高速缓存
+
+1：安装redis并启动服务
+    进入redis.io官网下载
+    解压压缩包，进入目录
+    执行 make && make install
+    启动服务并且将日志重定向输出：redis-server > redis.log &
+
+2：连接redis客户端
+    redis-cli
+
+3：操作数据库
+    放入string类型 数据：set username tom
+    查看数据：get username--->tom
+    加30s时间限制：set username tom ex 30
+    查看超时时间：ttl username
+
+4：命令
+    keys *：查看所有的键
+    type：查看数据类型
+    select：选择数据库
+    flushdb：清除选择的数据库信息
+    flushall：清除所有数据的信息
+    dbsize：查看选择的数据库中的键的数量
+    mset：一次放入多个键值对
+    mget：一次取多个数值

@@ -1,0 +1,64 @@
+<!-- html共有下面4个内容 -->
+<!-- 1：标签 - 承载内容
+	 2：层叠样式表 - 渲染页面
+	 3：JavaScript - 交互式行为
+ -->
+
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<!--这是一个样式表，用来修改下方标签的内容样式-->
+	<style >
+		h1 {
+			color:purple;/* 颜色 */
+			font-size: 80px;/* 字体大小 */
+			font-family: Brush Script MT;/* 字体 */
+		}
+		p {
+			font-size: 40px;
+			color: blue;
+		}
+		/* 设置首个字母 */
+		p:first-letter {
+			font-size: 50px;
+			color: green;
+		}
+		/* 通过.a类选择器修改下方命名为a的元素样式 */
+		.a {
+			color: red;
+		}
+		.b {
+			color: yellow;
+		}
+	</style>
+
+	<!--这会显示在浏览器的tab页上-->
+	<title>HTML练习</title>
+</head>
+<body>
+	<!--这是一级标题，会加粗-->
+	<h1>这是一个HTML练习</h1>
+
+	<!--这是一个风格线-->
+	<hr>
+
+	<!-- <br> 是一个换行符-->
+	床前明月光<br>
+	疑是地上霜<br>
+	举头望明月<br>
+	低头思故乡<br>
+
+	<!-- <p></p> 是一个段落符,会有空行-->
+	<p class="a">床前明月光</p>
+
+	<!-- <p class=''>可以标记一个元素,在设置样式可以通过.b来设置样式-->
+	<p class="b">疑是地上霜</p>
+	<p>举头望明月</p>
+	<p>低头思故乡</p>
+
+
+</body>
+</html>

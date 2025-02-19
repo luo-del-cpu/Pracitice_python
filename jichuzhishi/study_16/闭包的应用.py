@@ -21,23 +21,27 @@ def func1(a, b):
 x = func1(2, 3)  # 与下方的x_1两者互不影响
 x_1 = func1(3, 4)
 
-print(x_1())  # --->得出17
-print(x())  # --->得出15
+print("x_1():",x_1())  # --->得出17
+print("x():",x())  # --->得出15
 
 
 # 2.计数器
-# def generate_count():
-#     container = [0]
-#
-#     def add_one():
-#         container[0] = container[0] + 1
-#         print('当期是第{}次访问'.format(container[0]))
-#
-#     return add_one
+def generate_count():
+    container = [0]
+
+    def add_one():
+        container[0] = container[0] + 1
+        print('当期是第{}次访问'.format(container[0]))
+
+    return add_one
 
 
-# counter = generate_count()
-# counter()
+counter = generate_count()
+# 调用几次，记录一次状态
+counter()
+counter()
+counter()
+
 
 # 3.同级访问
 

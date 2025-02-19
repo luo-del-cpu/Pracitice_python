@@ -4,14 +4,15 @@
 
 """
 其余的内置函数：
-update:拼接两个字典
+update:就地修改字典的，返回值是 None
 fromkeys(seq,[default]):将seq转成字典的形式，如果没有指定默认的value则用None代替；如果指定default，则用defaylt代替
 """
 
 dict1 = {'1': "第一", '2': "第二", '3': "第三", '4': "第四", }
 dict2 = {'1': "替换的第一", '5': "第五"}
 result = dict1.update(dict2)
-print(result)  # None
+
+print(result)  # 返回None，因为是直接修改了dict1，如下打印
 print(dict1)  # {'1': '替换的第一', '2': '第二', '3': '第三', '4': '第四', '5': '第五'}
 
 list1 = [1, 2, 3, 4]

@@ -14,7 +14,7 @@ print(s1 == s2)  # True
 s3 = {1, 2, 3, 4, 5, 6, 7}
 s4 = s3 - s2
 s5 = s2 - s3
-print(s4)  # {7}
+print(s4)  # {7}：找出属于 s3 但不属于 s2 的元素
 print(s5)  # set()：找出属于 s2 但不属于 s3 的元素
 
 s6 = s3.difference(s2)

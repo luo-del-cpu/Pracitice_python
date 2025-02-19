@@ -21,4 +21,5 @@ range(4)：产生0 1 2 3
 range(0,10,2)：产生0 2 4 6 8 
 """
 
-·
+for i in  range(5):
+    print(i)

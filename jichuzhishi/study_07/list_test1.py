@@ -27,6 +27,7 @@ for value in numbers:
     if value < minvalue:
         minvalue = value
 print(f"最大值是{maxvalue}，最小值是{minvalue}")
+print(max(numbers),min(numbers))
 
 """
 冒泡排序

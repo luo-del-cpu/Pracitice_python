@@ -1,9 +1,9 @@
-'''
+"""
 reduce:
 1.reduce函数会将可迭代对象中的值依次传入的函数中，函数会接收两个参数，用于做累加，累乘等操作
 2.用时注意，需要提前导入模块
 3.reduce（lambda x,y:x+y,可迭代的数据，initial=None）
-'''
+"""
 from functools import reduce
 
 tuple_1 = (1, 2, 3, 4, 5)

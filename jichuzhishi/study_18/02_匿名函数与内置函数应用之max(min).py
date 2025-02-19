@@ -1,12 +1,12 @@
 # 匿名函数与内置函数的结合使用
 # max(min) sorted zip map reduce filter...
 
-'''
+"""
 max(min):
 根据条件查找最大值，一般用在元素为字典的情况下：
 max(可迭代的数据，key=lambda x : x['条件'])：如果是x:x['条件']这种，那么就是取出字典的键的对应的值进行比较，最终返回键
 如果是x:x,就是直接比较键的值的ASCILL码值进行比较并且返回值比较大的键
-'''
+"""
 
 # 打印列表中的最大值
 list_1 = [2, 3, 5, 6, 7]
@@ -26,8 +26,8 @@ list_3 = [
     {'name': 'lucy', 'age': 19},
     {'name': 'jack', 'age': 20}
 ]
-d = max(list_3, key=lambda dic: dic['age'])  # lambda dic: dic['age']作为参数传递给max;x_3就表示从列表中取出的每一个元素（字典）
-print('年龄最大的是：', d)  # 得出：{'name': 'jack', 'age': 20}，实际返回的是迭代出来的元素
+d = max(list_3, key=lambda dic: dic['age'])  # lambda dic: dic['age']作为参数传递给max进行比较;
+print('年龄最大的是：', d)  # 得出：{'name': 'jack', 'age': 20}，实际返回的是age最大所在字典的元素
 
 list_4 = {'k1': '18', 'k2': '17'}
 c = max(list_4, key=lambda x: list_4[x])  # 在这里，迭代list_4，先取k1作为参数传入匿名函数，经过list_4[x]处理得到18；

@@ -1,12 +1,12 @@
 # os中的函数
-'''
+"""
 os.getcwd():获取当前文件所在目录
 os.listdir():浏览文件夹
 os.mkdir():创建文件夹
 os.rmdir():删除文件夹（前提是文件夹中无文件）
 os.chdir():切换目录
 os.remove():删除文件
-'''
+"""
 
 import os
 

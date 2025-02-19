@@ -51,7 +51,7 @@ if 条件表达式：
 elif 条件表达式：
     执行步骤
 else:
-    执行步骤
+    上述不成立时的执行步骤
 """
 
 # level = int(input("请输入你的分数："))
@@ -62,24 +62,6 @@ else:
 # # else:
 # #     print("A")
 
-#while判断
-
-# count = 0
-# while count < 100 :
-#     print("计数器：",count)
-#     count += 1
-
-# count = 0
-# while count < 100 :
-#     count += 1
-#     if count < 20 and count >10:
-#         continue
-#     print("计数器：",count)
-
-
-#死循环 dead loop
-# while True :
-#     print("死循环")
 
 #猜年龄游戏
 # import random

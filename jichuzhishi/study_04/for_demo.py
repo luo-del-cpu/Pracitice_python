@@ -5,18 +5,6 @@ for 变量名 in 集合：
 """
 
 """
-range函数：可以产生包含给定范围之内的函数
-range（start,stop,step）:产生包含start但是不包含stop范围内的数
-例如：
-range(0,3):产生0 1 2 
-range(4)：产生0 1 2 3
-range(0,10,2)：产生0 2 4 6 8 
-"""
-
-# for i in  range(5):
-#     print(i)
-
-"""
 for i in 集合：
     有数据执行的语句
 else：

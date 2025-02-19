@@ -1,0 +1,38 @@
+会话机制：在网站中http是无状态的，也就是说，即使第一次访问服务器并且登录成功后，第二次请求就不知道发起请求的是哪个用户了
+所以就有了cookie与session，用来存储用户的一些信息
+
+1. cookie：是保存在浏览器端
+    保存：
+        通过response对象保存。
+        response = redirect (xxx)
+        response = render_template (xxx) response = Response )
+        response = make_response ()
+        response = jsonify()
+
+        ＃ 通过对象调用方法
+        response.set_cookie (key, value, max_age)
+
+    荻取：
+        通过request对象获取。
+        request. form.get ()
+        request.args .get ()
+        cookie也在request对象中
+        request.cookies.get (key) ----> value
+
+    删除
+        通过respanse对象删除。 把浏览器中的key=valve删除了
+        response = redirect (xxx)
+        cesponse = render_template (xxx)
+        response = Response 0
+        response = make_respons()
+        response = jsonify()
+        ＃ 通过对象调用方法
+        response. delete_cookie(key)
+
+2. session：存储在服务器，每一个浏览器一个用户的会话就相当于一次session
+    用户 A 在浏览器 X：用户 A 的登录状态存储在浏览器 X 的 session 中。
+    用户 A 在浏览器 Y：用户 A 在浏览器 Y 会有一个不同的 session，尽管用户名相同，两个 session 之间的数据是独立的。
+    用户 B 在浏览器 X：用户 B 会有一个与用户 A 不同的 session，且不受用户 A 的 session 影响。
+
+    通过cookie存储一个session_id，具体的数据则保存在session中。flask就是在服务器将session加密后存储在session中，
+    然后返回给浏览器，以便于下一次请求使用

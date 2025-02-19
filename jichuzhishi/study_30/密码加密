@@ -1,0 +1,7 @@
+密码加密：
+    自带的函数实现加密：
+        generate_password_hash(password, method='pbkdf2')
+
+    进行检查密码是否一致：使用对应的函数进行比较输入的与数据库是否一致
+        # 判断密码是否一致，一致返回true，否则为false；方法参数1是已加密的数据库的密码，2是输入的密码
+        flag = check_password_hash(user.password, password)

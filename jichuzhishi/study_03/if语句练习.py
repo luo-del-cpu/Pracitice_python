@@ -35,9 +35,9 @@ tem = float(input("输入天气温度:"))
 
 if tem >= 30:
     print("炎热的天气")
-elif tem >=20 and tem <= 29:
+elif 20 <= tem <= 29:
     print("舒适的天气")
-elif tem >=10 and tem <= 19:
+elif 10 <= tem <= 19:
     print("凉爽的天气")
 elif tem <=10 :
     print("寒冷的天气")

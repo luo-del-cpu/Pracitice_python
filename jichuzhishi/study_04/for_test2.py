@@ -31,7 +31,7 @@ print('*'*10,"这是第1题的分割线",'*'*10)
 如果未找到该字符，则打印出"字符未找到"的消息。
 '''
 message = 'Hello, World!'
-char ='i'
+char ='o'
 for i,a in  enumerate(message):
     if a==char:
         print(f"找到了字符{char}，在第{i}的位置")
@@ -39,22 +39,23 @@ for i,a in  enumerate(message):
 else:
     print("未找到字符")
 
-print('-'*30)
+print('*'*10,"这是第2题修改后的分割线",'*'*10)
 
 """
 上述的代码有缺陷；如果字符串2个相同的字符，那么只要找出来第一个字符的位置，就停止了，无法找到第二个字符，
 因为有break的存在；
 所以，如果想找出字符都存在的位置，那么就必须改变结构，如下所示：
 """
-# 设置一个变量为false
-found=True
+# 设置一个变量
+found=False
 for i,b in enumerate(message):
     #判断是否有相同的字符，如果有，就打印出来
     if b==char:
         print(f"找到了字符{char}，在第{i}的位置")
         #置为true后，就表示有相同的字符
         found = True
-#如果found为false（另外可以证明并没有进入if的判断之内，就没有相同的字符，无法置为true，found依然为false），not found就是true，条件成立，就代表没有找到字符
+#如果found为false，可以证明并没有进入if的判断之内，就没有相同的字符，无法置为true，found依然为false;
+# 如果没有进入过if判断，就代表found是false，没有相同字符，not found就是true，条件成立，就代表没有找到字符
 if not found:
     print("未找到字符")
 
@@ -83,6 +84,7 @@ print('*'*10,"这是第3题的分割线",'*'*10)
 '''
 sum=0
 for i in range(1,101):
+    # 判断取余等于0
     if i%3==0:
         sum+=i
 print("和是:",sum)

@@ -1,19 +1,19 @@
-# 继承之has a
-'''
-知识点：
-1.has a
-    一个类中使用了另外一种自定义的类型
+"""
+继承之has a
+1.定义
+    一个类中使用了另外一种自定义的类型，例如下方81行中的stu对象使用了computer和book对象
 2.类型
     系统类型：
         str list...
     自定义类型:
         算是自定义的类，都可以将其当成一种类型
         s = Student
-        s是Student类型的一个对象
-'''
+        s是Studet()t类型的一个对象
+"""
 
 
-class Computer():
+# 定义电脑的类，有品牌，型号，颜色的属性
+class Computer:
     def __init__(self, brand, type, color):
         self.brand = brand
         self.type = type
@@ -26,7 +26,8 @@ class Computer():
         return '电脑品牌：{} 型号：{} 颜色：{}'.format(self.brand, self.type, self.color)
 
 
-class Book():
+# 定义书的类，有书名，作者，数量属性
+class Book:
     def __init__(self, bname, author, number):
         self.bname = bname
         self.author = author
@@ -39,48 +40,53 @@ class Book():
         return '书名：{} 作者：{} 数量：{}'.format(self.bname, self.author, self.number)
 
 
-class Student():
-    def __init__(self, name, computer, book):
+# 定义学生类，有名字，电脑，书的属性
+class Student:
+    def __init__(self, name, own_computer, own_book):
         self.name = name
-        self.computer = computer
-        self.books = []
-        self.books.append(book)
+        self.computer = own_computer
+        # 初始化一个存储书籍的空列表
+        self.books_list = []
+        self.books_list.append(own_book)
 
-    def borrow_book(self, book):
-        for book1 in self.books:
-            # 判断传入的书籍名是否与书箱【self.books】里的书名重复，重复就代表借过
-            if book1.bname == book.bname:
-                print('已经借过了！')
+    # 此处的new_book实际就要传入一个book的对象
+    def borrow_book(self, new_book):
+        for b_book in self.books_list:
+            # 判断传入的书籍名是否与书箱【self.books_list】里的书名重复，重复就代表借过
+            if b_book.bname == new_book.bname:
+                print(f'{new_book.bname}已经借过了！')
                 break
         else:
             # 将对象参数book添加到列表中
-            self.books.append(book)
-            print('添加成功')
+            self.books_list.append(new_book)
+            print(f'{new_book.bname}已添加到我的书库')
 
     def show_book(self):
-        for book in self.books:  #
-            """因为在self.books的列表在添加的时候，传入的就是book对象，
-            所以，这里遍历出来的每一个book就是一个book对象"""
-            print(book.bname)  # 此处只需要打印出书的名字，通过book对象查看name
+        """
+        :return: 拥有的书籍名称
+        """
+        # 因为在self.books_list的列表在添加的时候，传入的就是book对象，所以，这里遍历出来的每一个book就是一个book对象
+        book_names = ",".join([show_book.bname for show_book in self.books_list ])
+        print(f"我现在拥有的书籍:{book_names}")
 
     def __str__(self):
-        return self.name + '---' + str(self.computer) + '---' + str(self.books)
+        return self.name + '---' + str(self.computer) + '---' + str(self.books_list)
 
 
-# 创建对象
 # 先创建子类的对象；因为父类中会用到子类里的属性，先有了子类里的属性，父类才能用
 computer = Computer('联想', 'A186', '白色')
 book = Book('盗墓笔记', '南派三叔', '10')
-# print(book)
+# 此处 将computer与book对象 给Student()实例化时 用作参数
 stu = Student('张三', computer, book)
-# print(stu)
 
-# 先看一下学生借了哪些书
+
+
+print('----------第一次查看学生拥有的书籍---------------')
 stu.show_book()
-# 定义一本书，鬼吹灯
-books1 = Book('鬼吹灯', 'aaa', '8')
-# print(books1)
+# 重新定义一本书：鬼吹灯
+book1 = Book('鬼吹灯', 'aaa', '8')
 
-print('-------------------------')
-stu.borrow_book(books1)
+print('----------进行借书操作---------------')
+stu.borrow_book(book1)
+print('----------再次查看学生拥有的书籍---------------')
 stu.show_book()

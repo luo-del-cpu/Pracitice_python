@@ -1,6 +1,9 @@
 # is a :base class 父类，基类
 """
-子类重写方法之定义自己独有的方法
+子类重写方法之重写父类中的同名方法
+    方法调用问题：
+            a:如果父类有eat(),子类也定义一个eat(),默认搜索的原则：先找当前类，当前类没有再去找父类；此种行为就叫重写（override）
+                父类提供的方法不能满足子类的需求，就需要在子类中定义一个同名的方法，这种行为：重写
 """
 
 
@@ -15,16 +18,13 @@ class Person:
 class Student(Person):
     def __init__(self, name, clazz):
         super().__init__(name)
-        # student自己特殊的属性也可以单独定义
         self.clazz = clazz
 
-        # 定义自己的同名方法，叫重写；实际先会执行父类的方法，在执行子类自己的方法
-    def run(self,student_method): # 这里只是警告，并不代表有错误
-
-        # 继承父类的方法
-        super().run()
-        print('{}：学生类自己的跑步方法:{}'.format(self.name,student_method))
+        # 定义与父类中同名的方法，叫重写；
+    def run(self):
+        print('{}：学生类自己的跑步方法:{}'.format(self.name,"子类自己方法的参数"))
 
 
-s =Student('tom',10) # 此处传参就需要根据student类中定义的init方法来传参
-s.run('子类自己方法的参数')
+s =Student('tom',10)
+# 只会去找里自己类中最近的方法
+s.run() # 得出：tom：学生类自己的跑步方法:子类自己方法的参数

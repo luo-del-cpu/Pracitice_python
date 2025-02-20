@@ -1,8 +1,8 @@
 # 在开发中看到一些私有化处理：装饰器
 
-class Person():
+class Person:
     def __init__(self, name, age):
-        self.name = name  # 加了__以后表示将属性私有化,访问范围仅仅在类中
+        self.name = name
         self.__age = age
 
     # 定义公有set和get方法:使用装饰property装饰器

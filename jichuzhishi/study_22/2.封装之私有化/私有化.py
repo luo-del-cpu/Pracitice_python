@@ -1,29 +1,19 @@
 """
 私有化：
-    封装：1.私有化属性 2.定义公有的set和get方法
-
-dir():
-函数不带参数时，返回当前范围内的变量、方法和定义的类型列表；
-带参数时，返回参数的属性、方法列表。
-如果参数包含方法__dir__()，该方法将被调用。
-如果参数不包含__dir__()，该方法将最大限度地收集参数信息。
+    封装：1.私有化属性,属性的访问范围仅仅限于类中 2.定义公有的set和get方法
+    私有化的好处：
+        1.隐藏属性，不被外界随意修改
+        2.也可以修改：通过setXXX函数完成
+            def setXXX（self,xxx）
+                筛选赋值内容：
+                    if xxx:
+                        pass
+                    else:
+                        pass
+        3.如果想获得具体的某一属性，使用getXXX函数
+                def getXXX(self,xxx)
+                    return self.__xxx
 """
-'''
-私有化的好处：
-1.隐藏属性，不被外界随意修改
-2.也可以修改：通过函数完成
-    def setXXX（self,xxx）
-        3.筛选赋值内容：
-            if xxx:
-                pass
-            else:
-                pass
-4.如果想获得具体的某一属性
-    使用getxxx函数
-        def getxxx(self,xxx)
-            return self.__xxx
-
-'''
 
 
 class Person():
@@ -62,5 +52,15 @@ p1.setAge(20)
 p1.setName('aaaaaa')
 print(p1)
 print(p1.getAge())  # 通过getxxx方法拿到私有化属性的值
+
+
+print("*"*50)
+"""
+dir():返回对象的属性和方法列表
+    1.不传参数时，返回当前作用域内的变量、方法和定义的类型列表；
+    2.带参数时，返回参数的属性、方法列表。
+    3.如果参数包含方法__dir__()，该方法将被调用，例如：s.__dir__()
+    4.如果参数不包含__dir__()，该方法将最大限度地收集参数信息。
+"""
 print(dir(Person))
 print(dir(p1))

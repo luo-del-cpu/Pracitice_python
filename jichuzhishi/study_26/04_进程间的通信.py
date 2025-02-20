@@ -1,6 +1,5 @@
 """
 进程间的通信通过队列（queue）来进行通信
-
 """
 
 from multiprocessing import Queue

@@ -1,12 +1,11 @@
-'''
+"""
 通过列表生成式(列表推导式)，我们可以直接创建一个列表，
-但是，收到内存限制，列表容量肯定是有限的。
+但是，受到内存限制，列表容量肯定是有限的。
 而且，创建一个包含100万个元素的列表，不仅占用很大的存储空间，
 如果我们仅仅需要访问前面几个元素，那后面绝大多数元素占用的空间都白白浪费了。
 所以，如果列表元素可以按照某种算法推算出来，那我们是否可以在循环的过程中不断推算出后续的元素呢？
 这样就不必创建完整的列表，从而节省大量的空间。在python中，这种一边循环一边计算的机制，称为”生成器“，generator
-
-'''
+"""
 
 
 """
@@ -73,5 +72,14 @@ print(next(x))  # 得到：1
 print(next(x))  # 得到：2
 print(next(x))  # 得到：3
 print(next(x))
-print(next(x)) # 得到：StopIteration: 没有更多元素了
+# print(next(x)) # 得到：StopIteration: 没有更多元素了
 
+def fibonacci_iterative(n):
+    a, b = 0, 1
+    for _ in range(n):
+        a, b = b, a + b
+    return a
+
+# 打印斐波那契数列的前10项
+for i in range(6):
+    print(fibonacci_iterative(i), end=" ")

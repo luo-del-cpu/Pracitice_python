@@ -8,7 +8,8 @@
 def register():
     username = input("输入用户名：")
     if len(username) < 6:
-        raise Exception('用户长度必须6位以上')  # 一般这里需要自己定义类，然后继承Exception，将异常抛出去
+        # 一般这里需要自己定义类，然后继承Exception，将异常抛出去；抛出的异常被上层调用此方法的try except捕获
+        raise Exception('用户长度必须6位以上')
     else:
         print("输入的用户名是", username)
 

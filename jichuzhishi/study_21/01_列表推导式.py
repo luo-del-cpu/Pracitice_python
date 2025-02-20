@@ -23,8 +23,8 @@
 # print(newlist)
 #
 # # 构成一个列表：使用0-5之间的偶数，0-10之间的奇数--->[(偶数，奇数)。。。]
-# newlist = [(x, y) for x in range(0, 5) if x % 2 == 0 for y in range(0, 10) if y % 2 != 0]
-# print(newlist) 可以在列表中连着写两个for循环,相当于是嵌套循环(第二个for循环套在第一个for循环中)
+newlist = [(x, y) for x in range(0, 5) if x % 2 == 0 for y in range(0, 10) if y % 2 != 0]
+print(newlist) # 可以在列表中连着写两个for循环,相当于是嵌套循环(第二个for循环套在第一个for循环中)
 #
 # # list = [[1,2,3],[4,5,6],[7,8,9],[1,3,5]] --->[3,6,9,5]
 # list = [[1, 2, 3], [4, 5, 6], [7, 8, 9], [1, 3, 5]]
@@ -37,10 +37,10 @@ dict2 = {'name': 'jack', 'money': 5000}
 dict3 = {'name': 'lily', 'money': 1000}
 #
 list_1 = [dict1, dict2, dict3]
-#
-# newlist = [person['money'] + 200 if person['money'] > 5000 else person['money'] + 500 for person in list_1]
-# print(newlist)
-# print(list_1)  # 此处注意没有修改原列表字典中的值；只是将运算后的结果存入一个新列表中，得到[2500, 5500, 1500]
+
+newlist = [person['money'] + 200 if person['money'] > 5000 else person['money'] + 500 for person in list_1]
+print(newlist)
+print(list_1)  # 此处注意没有修改原列表字典中的值；只是将运算后的结果存入一个新列表中，得到[2500, 5500, 1500]
 
 newlist = [
     {'name': person['name'], 'money': person['money'] + 200 if person['money'] > 5000 else person['money'] + 500}

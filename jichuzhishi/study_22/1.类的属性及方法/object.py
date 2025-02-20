@@ -1,5 +1,5 @@
-'''
-面向对象：
+"""
+面向对象：把构成问题事务分解成各个对象，建立对象的目的不是为了完成一个步骤，而是为了描叙某个事物在整个解决问题的步骤中的行为。
 程序          现实中
 对象---->     具体的事物
 
@@ -33,7 +33,7 @@
 
     多个对象--->提取对象的共同特征和动作--->封装到一个类中
 ####【重点：类中只放对象共有的属性和方法】
-'''
+"""
 # 在程序中一般先定义类，在找出对象的属性与方法
 
 # 所有的类名要求首字母大写，多个单词使用驼峰式命名
@@ -56,9 +56,11 @@ class Phone:
 
 
 # 使用类创建对象
-zhangsan = Phone()  # 创建一个对象
-print(zhangsan)  # 得出：<__main__.Phone object at 0x0000025D4881E280>；为创建的对象分配一个内存空间
-print(zhangsan.brand)  # 得出：Huawei；从类中找出对应的属性
-zhangsan.brand = 'iphone'
-print(zhangsan.brand)  # 得出：iphone；修改张三的属性，只是修改自己的属性，并不会影响类中的属性和其它对象的属性
+phone1 = Phone()  # 创建一个手机对象
+phone2 = Phone()
+print(phone1)  # 得出：<__main__.Phone object at xxxxxxxx>；为创建的对象分配一个内存空间
+print(phone1.brand)  # 得出：Huawei；从类中找出对应的属性
+phone1.brand = 'oppo' # 修改phone1对象中的brand为oppo
+print(phone1.brand)  # 得出：oppo；修改phone1的属性，只是修改自己的属性，并不会影响类中的属性和其它对象的属性
 print(Phone.brand)  # 得出：Huawei，类中的属性依然是Huawei
+print(phone2.brand) # 得出：Huawei，phone2对象中的属性依然是Huawei

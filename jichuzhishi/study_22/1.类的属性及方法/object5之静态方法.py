@@ -1,31 +1,14 @@
-# 静态方法
-'''
+"""
 静态方法：很类似于类方法
-1.需要装饰器#staticmethod
+1.需要装饰器@staticmethod
 2.静态方法是无需传递参数（cls,self都是不需要的）
 3.也只能访问类的属性和方法，对象的是无法访问的
 4.加载时机同类方法
-
-总结类方法和静态方法：
-不同之处：
-1.装饰器不同
-2.类方法有参数，静态方法无参数
-
-相同之处：
-1.只能访问类的属性和方法，对象的是无法访问的
-2.都可以通过类名调用访问
-3.都可以在创建之前使用，因为是不依赖于对象的
-
-普通方法与上述两者的区别：
-不同之处：
-1.普通方法不依赖于装饰器
-2.普通方法永远要依赖对象，因为每个普通方法都有一个self
-3.只有创建了对象才可以调用普通方法，否则无法调用
-'''
+"""
 
 
-class Person():
-    __age = 19  # 加了__以后，就无法在类以外的地方访问；例如无法在使用Person.age进行访问
+class Person:
+    __age = 19
 
     def __init__(self, name):
         self.name = name
@@ -40,16 +23,17 @@ class Person():
 
     @classmethod
     def show_age(cls):
-        print('修改后的年龄：', cls.__age)
+        print('显示类属性的年龄：', cls.__age)
 
     @staticmethod
     def test2():
         # print(self.name)  # 语法的错误，静态方法是无法访问对象的属性的
         print('--->静态方法')
-        print(Person.__age)
-        Person.show_age() # 可以通过类访问到类方法
+        print(Person.__age) # 直接使用：类名.属性访问
+        # Person.show_age() # 可以通过类访问到类方法
 
-
-Person.test()
-Person.show_age()
-Person.test2()
+Person.show_age() # 输出：19
+Person.test() # 修改类属性age为20
+Person.test2() # 输出：20
+p = Person("tom")
+p.test2() # 也可使用对象调用静态方法

@@ -10,7 +10,7 @@ class Phone:
     def __init__(self):
         # 可以在控制台看到，此处是最先打印出来的
         print('--->init方法')
-        # 动态的给self（马上要赋值给的对象）空间中添加了两个固定的属性：brand price
+        # 动态的给self（马上要赋值给的对象）空间中添加了两个固定的属性：brand price；类中没有这些参数
         self.brand = 'xiaomi'
         self.price = 1000
 

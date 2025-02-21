@@ -8,7 +8,8 @@
 def add(*args):
     print(args)
 
-
+add()
+add(1)
 
 def add1(*args):  # 这里参数可传可不传，这里系统会自动准备一个元组(),将函数调用的参数放入这个元组
     sum = 0
@@ -20,14 +21,11 @@ def add1(*args):  # 这里参数可传可不传，这里系统会自动准备一
     else:
         print("没有可加的元素")
 
-
-add()
-add(1)
 # add(1, 2)
 # add(1, 2, 3, 4)
 
 
-def add(name, *args):
+def add2(name, *args):
     sum = 0
     if len(args) > 0:
         for i in args:
@@ -37,7 +35,7 @@ def add(name, *args):
         print("没有可加的元素")
 
 
-add('张三', 1, 2, 3, 4)  # 在有不可变参数和可变参数同时存在时，不可变的参数必须放在前面
+add2('张三', 1, 2, 3, 4)  # 在有不可变参数和可变参数同时存在时，不可变的参数必须放在前面
 
 
 def test(*args):

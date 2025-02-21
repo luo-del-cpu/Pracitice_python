@@ -1,4 +1,7 @@
+"""
 # 进程：自定义
+    继承Process，重写run()方法
+"""
 from multiprocessing import Process
 
 

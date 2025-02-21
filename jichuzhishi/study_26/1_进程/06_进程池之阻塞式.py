@@ -1,12 +1,12 @@
 """
-阻塞式：添加一个执行一个任务，如果一个任务不结束，另一个任务就进不来
-非阻塞式：全部添加到队列中，立刻返回，并没有等待其它进程执行完毕，但是回调函数是等待任务完成之后才调用
+进程池
+    阻塞式：添加一个执行一个任务，如果一个任务不结束，另一个任务就进不来
 """
 import os
 from multiprocessing import Pool
 import time
 
-# 非阻塞式
+# 非阻塞式进程
 from random import random
 
 
@@ -19,16 +19,19 @@ def task(task_name):
     print('完成任务:{};用时：{};进程id：{}'.format(task_name,(end - start),os.getpid()))
 
 
+
 if __name__ == '__main__':
     pool = Pool(5)
 
+    # 有6个任务，大于池子的5
     tasks = ['听音乐', '洗衣服', '跑步', '做饭', '学习', '上班']
     for task1 in tasks:
-        pool.apply_async(task, args=(task1,))
-        # pool.apply(task, args=(task1,)) # 阻塞式
+        # 阻塞式：apply(任务，参数)
+        pool.apply(task, args=(task1,))
 
     pool.close()  # 添加任务结束
-    pool.join()  # 让主进程让步，意思就是不让主进程做事，这样主进程会一直活着，子进程也可以一直活着
+
+    pool.join()
 
     print('over')
 

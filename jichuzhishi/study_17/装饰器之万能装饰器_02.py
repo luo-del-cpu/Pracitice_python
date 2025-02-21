@@ -52,3 +52,10 @@ def func4(studerts, clazz='101'):
 
 studerts = ['张三', '李四']
 func4(studerts,clazz='102')
+print("*"*50)
+@decorator
+def func5(a, *args,**kwargs):
+    print('----这是第五个测试函数！----')
+    print(a, args, kwargs)
+
+func5(1,2,3,clazz='103')

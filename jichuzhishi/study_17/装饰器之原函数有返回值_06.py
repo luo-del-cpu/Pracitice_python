@@ -37,10 +37,12 @@ import time
 def measure_time(func):
     def wrapper(*args, **kwargs):
         start = time.time()
+        # 【重点：调用原函数，因为原函数有返回值，这里必须有一个值来接收，如果只是写fun(*args,**kwargs);那么原函数的返回值就会丢弃】
         result = func(*args, **kwargs)
         end = time.time()
         print(result)
         print(f"Function {func.__name__} took {(end - start):.6f}s to execute")
+        # 【重点：原函数如果有返回值，这里最好也加返回值进行透传原函数的值，很少会修改原函数的值】
         return result
     return wrapper
 @measure_time
@@ -49,8 +51,9 @@ def my_function():
     return "执行函数"
 
 x = my_function()  # 打印：Function my_function took 1.000798s to execute
-print("x的值",x)
+print("x的值:"+ x)
 
+print("*"*50)
 
 def create(pos=None):
     if pos is None:
@@ -64,7 +67,7 @@ def create(pos=None):
         pos[1] = new_y
         print("go的函数地址", id(go))
 
-        return (pos)
+        return pos
 
     return go
 
@@ -77,10 +80,23 @@ print(x)
 # print("----",player([-1, 0], 10))
 print("player的函数地址",id(player))
 
-
+print("*"*50)
 
 def test(a):
     #print(a)
     return a
 x=test(1)
 print(x)
+
+
+def bad_decorator(func):
+    def wrapper(*args, **kwargs):
+        func(*args, **kwargs)  # 不保存返回值
+        return 100  # 强制返回 100
+    return wrapper
+
+@bad_decorator
+def add(a, b):
+    return a + b
+
+print(add(3, 5))  # 输出 100（原函数的返回值被覆盖）

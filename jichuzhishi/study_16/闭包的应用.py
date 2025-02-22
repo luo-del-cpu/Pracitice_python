@@ -1,12 +1,12 @@
 # 闭包的应用
-'''
+"""
 1.保存返回闭包时的状态（保存参数的状态）
 2.计数器
 3.同级访问
-'''
+"""
 
 
-# 1.闭包保存参数的状态
+# 1.闭包保存参数的状态--->案例一
 def func1(a, b):
     c = 10
 
@@ -23,6 +23,32 @@ x_1 = func1(3, 4)
 
 print("x_1():",x_1())  # --->得出17
 print("x():",x())  # --->得出15
+
+
+print("*"*50)
+# 1.闭包保存参数的状态--->案例二
+def create(pos=None):
+    if pos is None:
+        pos = [0, 0]
+
+    def go(direction, step):
+        new_x = pos[0] + direction[0] * step
+        new_y = pos[1] + direction[1] * step
+
+        pos[0] = new_x
+        pos[1] = new_y
+        # print("go的函数地址", id(go))
+
+        return pos
+
+    return go
+
+
+player = create()
+# 每次打印都能保存自己的状态值
+print("---->1",player([1, 0], 10)) # 得出：[10, 0]
+print("---->2",player([0, 1], 20)) # 得出：[10, 20]
+print("---->3",player([-1, 0], 10)) # 得出：[0, 20]
 
 
 # 2.计数器

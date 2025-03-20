@@ -53,4 +53,5 @@ print(c) # /Users/luoxin/workspace/Pracitice_python/jichuzhishi/aaa/111
 # r = os.path.getsize(path)
 # print(r)  # 得出：1668
 
-
+print("+++",os.path.dirname(__file__))
+print("---",os.path.abspath("04_os.path.py"))

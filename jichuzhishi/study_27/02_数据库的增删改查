@@ -14,9 +14,10 @@
 5：连接查询：前提是得有外键约束
     select a,b,c from tb_1 t1,tb_2 t2 where t1.a = t2.b
 
-6：内连接：仅包含符合连接条件的行，有可能会把空行被筛选出去
+6：内连接：仅包含符合连接条件的行，会把匹配不到的行被筛选出去
      select a,b,c from tb_1 t1 inner join tb_2 t2 on t1.a = t2.b where ...
 
 7：外连接：不需要区分，左表和右表都不受限制，所有记录都显示，两个表不足的地方可用null进行填充
-左外连接用的比较多
+左外连接用的比较多(left outer join/ left join没有区别)
      select a,b,c from tb_1 t1 left outer join tb_2 t2 on t1.a = t2.b where ...
+     select a,b,c from tb_1 t1 left join tb_2 t2 on t1.a = t2.b where...

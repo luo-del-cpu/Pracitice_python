@@ -6,11 +6,11 @@ import pymysql
 def main():
     # 数据库连接参数
     db_config = {
-        'host': 'db4free.net',
-        'port': 3306,
-        'user': 'hhpmmxobithcux',
-        'password': '12345678',
-        'database': 'study_tester',
+        'host': 'mysql-5636f5-project-dcdd.h.aivencloud.com',
+        'port': 11894,
+        'user': 'avnadmin',
+        'password': 'AVNS_vdvf5CjWWvp34Yd8UgY',
+        'database': 'Django_0318',
         'charset': 'utf8mb4',  # 或者使用 'utf8' 根据你的数据库编码
         'cursorclass': pymysql.cursors.DictCursor  # 使用字典游标，这样返回的行就是字典格式
     }
@@ -24,7 +24,7 @@ def main():
         # 使用cursor执行语句
         with conn.cursor() as cursor:
             # SQL查询语句
-            sql = "select * from tb_student"
+            sql = "select * from student"
             cursor.execute(sql)
 
             # 获取所有记录

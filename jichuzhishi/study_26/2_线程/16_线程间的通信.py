@@ -19,12 +19,9 @@ def produce(q):
         # 将产生的数据放入队列
         q.put(f"生产者生成数据:{num}")
         print(f"生产者生成数据:{num}")
-        time.sleep(1)
+        time.sleep(0.5)
         i += 1
     q.put(None)
-
-    # 完成任务
-    q.task_done()
 
 
 def consume(q):
@@ -32,10 +29,13 @@ def consume(q):
         # 从队列中拿数据
         item = q.get()
         if item is None:
+            # 在结束前，告知队列已经完成任务，否则下方的q.join()会一直阻塞，主线程也无法得到释放
+            q.task_done()
             break
         print("消费者拿到的数据:",item)
-        time.sleep(4)
-    q.task_done()
+        time.sleep(1)
+        # 完成任务，用于消费者通知队列已经完成任务
+        q.task_done()
 
 
 if __name__ == '__main__':
@@ -47,7 +47,11 @@ if __name__ == '__main__':
     tc = threading.Thread(target=consume, args=(q,))
     tc.start()
 
+    # 确保主线程阻塞，知道子线程完成
     tp.join()
     tc.join()
+
+    # 等待队列中所有任务完成
+    q.join()  # 必须调用 q.join() 来确保所有任务都完成
 
     print("END")

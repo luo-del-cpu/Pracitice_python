@@ -1,0 +1,48 @@
+【shell变量截取】：
+    1：从指定位置开始截取
+    2：从指定字符开始截取
+
+    示例：从指定位置开始截取
+    str="hello world"
+    echo ${#str} # 输出字符长度，速度最快
+    echo ${str:3} # 从第3个字符(包含)开始截取，输出 "lo world"
+    echo ${str:3:5} # 从第3个字符(包含)开始截取5个字符(截取的字符数不超过5)，输出 "lo wo"
+    echo ${str: -5} # 从倒数第5个字符(包含)开始截取，输出 "world"
+
+    示例：从指定字符开始截取
+    str="hello world"
+    echo ${str#h*l} # 从开头开始匹配h到l之间的最短的字符，输出剩下的字符； "lo world"
+    echo ${str##h*l} # 从开头开始匹配h到l之间的最长的字符，输出剩下的字符； "d"
+
+    echo ${str%h*l} # 从结尾开始匹配h到l的最短的字符，输出剩下的字符； "d"
+    echo ${str%%h*l} # 从结尾开始匹配h到l的最长的字符，输出剩下的字符； "d"
+
+【替换字符串】：
+    1：替换字符串中的所有出现的字符
+        str="hello world"
+        echo ${str//l/L} # 替换所有l为L，输出 "heLLo worLd"
+    2：替换字符串中的第一次出现的字符
+        echo ${str/l/L} # 替换第一次l为L，输出 "heLlo world"
+
+【扩展变量】：
+    1:result=${parameter:-word}：如果parameter没有设置或为空，则返回word给result，否则返回parameter的值。
+        str="test"
+        result=${str:-default} # str与result都是"test"，等价于：result=${str}
+        str=""
+        result=${str:-default} # str输出依然是空，result输出"default";
+
+    2:result=${parameter:=word}：如果parameter没有设置或为空，则设置parameter为word，且返回word给result，否则返回parameter的值。
+        str="test"
+        result=${str:=default} # str与result都是"test"，等价于：result=${str}
+        str=""
+        result=${str:-default} # str和result输出"default";
+
+    3:result=${parameter:+word}：如果parameter没有设置或为空,返回空字符串;如果parameter设置了值，则返回word。
+        str="test"
+        result=${str:+default} # str依然是test，result输出"default";
+        str=""
+        result=${str:+default} # str与result输出空字符串;
+
+    4:result=${parameter:?message}：如果parameter没有设置或为空，则输出错误信息message并退出脚本。
+        echo ${name:?该变量值为空} # 输出：name: 该变量值为空
+

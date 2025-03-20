@@ -1,0 +1,4 @@
+JWT 是什么？
+    JWT（JSON Web Token） 是一种 无状态、基于 Token 的认证机制，通常用于前后端分离的 API 认证。
+        传统认证（Session 认证）：用户登录后，服务器会在 Session 中保存用户信息，每次请求时，客户端带上 Session ID 进行验证，服务器需要存储 Session。
+        JWT 认证：用户登录后，服务器生成一个 JWT Token 并返回给前端，前端每次请求 API 时带上这个 Token，服务器通过 Token 解析用户信息，服务器不需要存储 Session（无状态认证）。

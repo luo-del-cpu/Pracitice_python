@@ -6,11 +6,16 @@
 
 关系型数据库：
     理论基础：关系代数和集合论
-    具体表象：用二维表来保存数据
+    具体表象：用二维表（行和列）来保存数据，数据表之间通过外键等关系进行连接，数据之间存在明确的结构和模式。
+    典型：MySQL、PostgreSQL、Oracle、SQL Server等。
     SQL编程语言：
         DDL(数据定义语言)：create/drop/alter
         DML(数据操作语言)：insert/delete/udate/select
         DCL(数据控制语言)：grant/revoke
+非关系型数据库：
+    理论基础：
+    具体表象：非关系型数据库不使用传统的行和列结构，而是支持多种数据存储格式，包括文档、键值对、列族和图形等。
+    典型：MongoDB（文档型）、Cassandra（列族型）、Redis（键值对型）、Neo4j（图数据库）等。
 
 1：创建数据库
     create database school defalut charset utf8;
@@ -50,7 +55,7 @@
     一次加入多个数据:
         insert into {表名} values(1001，'张三'，1，'2002-2-2'，'湖北'),(xxx),(xxx)
 
-8：删除表内容
+8：删除表内容（逐行删除，不删除表结构）
     delete from {表名} where {条件}
 
 9：更新表内容

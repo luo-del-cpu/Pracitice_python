@@ -15,3 +15,14 @@ global 变量的范围
 globals()  # 打印全局变量
 locals()  # 打印当前位置的所有变量
 
+a = 10
+
+def f():
+    # 想要修改全局变量，必须global
+    global a
+    a+=10
+    return a
+
+if __name__ == '__main__':
+    print(f())
+    print(a)

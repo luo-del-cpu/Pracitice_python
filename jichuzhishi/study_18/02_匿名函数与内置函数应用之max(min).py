@@ -30,8 +30,8 @@ d = max(list_3, key=lambda dic: dic['age'])  # lambda dic: dic['age']作为参�
 print('年龄最大的是：', d)  # 得出：{'name': 'jack', 'age': 20}，实际返回的是age最大所在字典的元素
 
 list_4 = {'k1': '18', 'k2': '17'}
-c = max(list_4, key=lambda x: list_4[x])  # 在这里，迭代list_4，先取k1作为参数传入匿名函数，经过list_4[x]处理得到18；
-# 同理，继续使用K2作为参数，得出17，比较后得出k1比较大
+c = max(list_4, key=lambda x: list_4[x])  # 在这里，迭代list_4，先取k1作为参数传入匿名函数，经过list_4[x]处理得到值18；
+# 同理，继续使用K2作为参数，得出值17，比较两个值后得出k1比较大
 c_1 = max(list_4, key=lambda x: x)  # 此处得到K2比较大；因为迭代list_4,先取K1作为参数传入匿名函数，表达式返回的还是x-->即K1
 # 同理，继续使用K2作为参数，表达式返回的是K2,比较（根据ASCILL码值）得出K2较大
 print('年龄最大的是：', c)  # 得出：k1 实际返回的是迭代出来的参数

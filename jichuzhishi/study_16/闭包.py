@@ -51,3 +51,15 @@ print(f"外部x的内存地址是:{id(x)}")
     inner_func1的内存地址是:4331122400
     外部x的内存地址是:4331122400
 """
+
+
+funcs = []
+
+for i in range(3):
+    def f(i=i):
+        return i
+    funcs.append(f)
+
+print(funcs[0]())  # ❗ 0
+print(funcs[1]())  # ❗ 1
+print(funcs[2]())  # ❗ 2

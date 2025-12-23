@@ -5,6 +5,7 @@
 生成10个不同的随机数放在一个列表中：
 """
 import random
+from typing import List
 
 numbers = []
 i=0
@@ -18,6 +19,9 @@ print(numbers)
 """
 在一个列表中找出最大值、最小值
 """
+
+numbers = [15, 13, 8, 20, 12, 19, 1, 9, 16, 5]
+
 maxvalue = numbers[0]
 minvalue = numbers[0]
 
@@ -32,7 +36,19 @@ print(max(numbers),min(numbers))
 """
 冒泡排序
 """
+numbers = [15, 13, 8, 20, 12, 19, 1, 9, 16, 5]
+def mao_pao(numbers: List[int])->List[int]:
+    for i in range(len(numbers)-1):
+        for j in range(len(numbers)-i-1):
+            if numbers[j] > numbers[j+1]:
+                numbers[j],numbers[j+1] = numbers[j+1],numbers[j]
+    return numbers
 
+print(f"冒泡从小到大--->{mao_pao(numbers)}")
+
+"""
+不严谨的排序
+"""
 numbers = [15, 13, 8, 20, 12, 19, 1, 9, 16, 5]
 
 for i in range(len(numbers)):

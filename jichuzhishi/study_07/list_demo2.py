@@ -2,7 +2,7 @@
 # @Author : luoxin
 
 """
-增删改查、排序
+增删改查
 """
 
 # 改：通过索引下标更改
@@ -39,6 +39,11 @@ print(names)
 girls = []
 name1 = 'luoxin'
 
+"""
+注意：list.append不能再赋值给新的变量，否则会被覆盖为None；例如下方的:
+girls = girls.append(name1)
+如果这样写，就会将girl是重新赋值为None
+"""
 girls.append(name1)
 print(girls)
 # 输出：['luoxin']
@@ -59,8 +64,4 @@ cars.insert(1, '法拉利')
 print(cars)
 # 输出：['宝马', '法拉利', '奔驰', '路虎']
 
-# 排序：sorted():默认升序排列,可加参数改为降序：sorted(seq,reverse=True)
 
-paixu = [21, 33, 2, 4, 22, 5]
-print(sorted(paixu))
-# 输出：[2, 4, 5, 21, 22, 33]

@@ -48,17 +48,24 @@
     修改列:
         alter table {表名} change column stuaddr stuaddr varchar(455);
 
-7：新增数据
+7：新增数据,新增一行数据
         insert into {表名} values(1001，'张三'，1，'2002-2-2'，'湖北')
     若是想要加指定列的数值，需要指定
         insert into {表名} (stuid,stuname) values(1001，'张三'，1，'2002-2-2'，'湖北')
     一次加入多个数据:
         insert into {表名} values(1001，'张三'，1，'2002-2-2'，'湖北'),(xxx),(xxx)
 
-8：删除表内容（逐行删除，不删除表结构）
+8：删除表内容（逐行删除，保留表结构，速度慢，自增id不会重置），支持回滚
     delete from {表名} where {条件}
 
-9：更新表内容
+  删除表内容（全表清空，保留表结构，速度快，自增id会重置），不支持回滚
+  TRUNCATE TABLE {表名};
+
+  删除表结构+内容
+  DROP TABLE {表名};
+
+
+9：更新表内容，更新某个字段内容
     update {表名} set {字段名1}='xxx',{字段名2 }=''xxx' where {条件};
 
 10：AUTO_INCREMENT 与 PRIMARY KEY 的关系

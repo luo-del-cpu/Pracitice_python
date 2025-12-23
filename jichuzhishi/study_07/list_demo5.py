@@ -6,6 +6,10 @@
 """
 
 l1 = ['a','b','c','d']
+students = [
+    {"name": "Tom", "score": 90},
+    {"name": "Jerry", "score": 85}
+]
 
 for index,value in enumerate(l1):
     print(index,value)

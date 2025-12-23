@@ -9,8 +9,11 @@ str.title():将字符串中的每个单词的首字母转换为大写
 str.upper():将字符串中字母转换为大写
 str.lower():将字符串中字母转换为小写
 """
-s1 = 'abc'
-print(s1.capitalize())
+s1 = 'abc123'
+print(s1.capitalize()) # Abc123
+print(s1.title()) # Abc123
+print(s1.upper()) # ABC123
+print(s1.lower()) # abc123
 
 s='QWERTYUIOPASDFGHJKLZXCVBNMqwertyuiopasdfghjklzxcvbnm0987654321'
 code=''

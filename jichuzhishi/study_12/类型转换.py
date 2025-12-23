@@ -28,8 +28,8 @@ print(type("{'name':'jck','age':'18'}"))
 print(type("1.2"))
 
 # list ---> set、tuple，dict(可以转成字典，但必须是以下格式[(key,vale),(key,vale),(key,vale)...])
-print(set([1,2,3]))  # 等价于 {1,2,3}
-print(tuple([1,2,3])) # (1, 2, 3)
+print(f"list-->set:{set([1,3,2,3,2])}")  # 等价于 {1,2,3}
+print(f"list-->tuple:{tuple([1,3,2,3,2])}") # (1, 2, 3)
 print(dict([('name','jck'),('age','18')])) # {'name': 'jck', 'age': '18'}
 
 # tuple ---> list
@@ -41,3 +41,4 @@ print(list({1,2,3})) # [1,2,3]
 #dict ---> list(只把key放入列表)
 
 print(list({'name': 'jck', 'age': '18'})) # ['name','age']
+

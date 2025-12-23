@@ -30,7 +30,15 @@ redis:
     DECR key                    # 递减（适用于数值）
     decrby key 步长              # 将key对应的值减少指定步长（适用于数值）
     APPEND key value            # 追加字符串
-    ttl key                     # 查看过期时间
+    SETEX key ttl value         # 设置值+过期时间
+    
+    
+# 通用命令
+    DEL key                     # 删除指定key
+    EXPIRE key seconds          # 设置key的过期时间
+    TTL key                     # 查看剩余过期时间
+    EXISTS key                  # 判断key是否存在
+    TYPE key                    # 查看key类型
 """
 import redis
 
